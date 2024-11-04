@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  */
 public class TestOperacionesColas extends javax.swing.JFrame {
 
-    OperacionesCola cola = new OperacionesCola(10);
+    OperacionesCola cola = new OperacionesCola(5);
     public TestOperacionesColas() {
         initComponents();
     }
@@ -24,17 +24,17 @@ public class TestOperacionesColas extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
-        btnAñadirElmentos = new javax.swing.JButton();
+        btnAñadirElmentosCola = new javax.swing.JButton();
         btnImprimirElementos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblTitulo.setText("Oeraciones ED colas Martiez");
 
-        btnAñadirElmentos.setText("Añadir elementos en ED cola");
-        btnAñadirElmentos.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadirElmentosCola.setText("Realizar cola elementos en ED ");
+        btnAñadirElmentosCola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAñadirElmentosActionPerformed(evt);
+                btnAñadirElmentosColaActionPerformed(evt);
             }
         });
 
@@ -52,45 +52,48 @@ public class TestOperacionesColas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAñadirElmentos)
-                            .addComponent(btnImprimirElementos)))
+                        .addGap(106, 106, 106)
+                        .addComponent(lblTitulo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(lblTitulo)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnImprimirElementos)
+                            .addComponent(btnAñadirElmentosCola))))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(41, 41, 41)
                 .addComponent(lblTitulo)
-                .addGap(47, 47, 47)
-                .addComponent(btnAñadirElmentos)
-                .addGap(65, 65, 65)
+                .addGap(33, 33, 33)
+                .addComponent(btnAñadirElmentosCola)
+                .addGap(51, 51, 51)
                 .addComponent(btnImprimirElementos)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAñadirElmentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirElmentosActionPerformed
-           for (int i = 0; i < 10; i++) {
+    private void btnAñadirElmentosColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirElmentosColaActionPerformed
+           for (int i = 0; i <=5; i++) {
                try {
                    cola.insertar(i);
-                   
+                   JOptionPane.showMessageDialog(null, "Llenando Valores \n"+(i+1));
                } catch (Exception e) {
                    JOptionPane.showMessageDialog(null, "Error  Al Insertar Los Datos\n"+e);
                    
                }
             
         }
-    }//GEN-LAST:event_btnAñadirElmentosActionPerformed
+    }//GEN-LAST:event_btnAñadirElmentosColaActionPerformed
 
     private void btnImprimirElementosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirElementosActionPerformed
-        // TODO add your handling code here:
+       
+                cola.imprimir();
+                JOptionPane.showMessageDialog(null, "Cola Llena De Valores Es \nTamaño Maximio Es :\n "+cola.tamMax());
+        
     }//GEN-LAST:event_btnImprimirElementosActionPerformed
 
     /**
@@ -129,7 +132,7 @@ public class TestOperacionesColas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAñadirElmentos;
+    private javax.swing.JButton btnAñadirElmentosCola;
     private javax.swing.JButton btnImprimirElementos;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
